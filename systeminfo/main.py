@@ -5,6 +5,7 @@ import ctypes
 from datetime import datetime
 import uuid
 import re
+import psutil
 
 try:
     ia = os.getuid() == 0
@@ -38,7 +39,10 @@ print(dash)
 print('System Information')
 print('Current Time:', ctime)
 print('Current Date:', cdate)
-print ('Mac Address:',':'.join(re.findall('..', '%012x' % uuid.getnode())))
+print('Mac Address:',':'.join(re.findall('..', '%012x' % uuid.getnode())))
+print('Logical Cores:', str(psutil.cpu_count()))
+print('Physical Cores:', str(psutil.cpu_count(logical=False)))
+print('Ram:', str(psutil.virtual_memory().total / (1024. **3)))
 print(dash)
 print('Session Information')
 print('Running Admin:', ia)
