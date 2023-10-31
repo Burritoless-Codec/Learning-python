@@ -4,7 +4,7 @@ import os
 
 
 #Take input from user about file.
-print('Filename is case sensative! Include extention.')
+print('Filename is case sensitive! Include extention.')
 fname = str(input('File Name:'))
 
 #get time and date for log file
